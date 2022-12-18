@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="main.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.js"
+        integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col s4"></div>
+        <form class="col" id="custom-validation-form">
+            <input type="date" id="datapicker" class="">
+            <label for="starttimepicker"> start Time</label>
+            <input id="starttimepicker" type="time" class="timepicker">
+            <label for="endtimepicker"> end Time</label>
+            <input id="endtimepicker" type="time" class="timepicker">
+            <label for="textarea1">Description</label>
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <select id="select1">
+                <option value="" disabled selected>Select 1</option>
+            </select>
+            <select id="select2">
+                <option value="" disabled selected>Select 2</option>
+                <option value="HTML5a">HTML5</option>
+                <option value="CSS3">CSS3</option>
+                <option value="Material Design">Material Design</option>
+                <option value="Bootstrap 4">Bootstrap 4</option>
+            </select>
+            <div id="submit-button" class="btn waves-effect waves-light">Submit</div>
+        </form>
+        <div class="col s4"></div>
+
+    </div>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        const setSelectedValue = (value, index) => {
+            console.warn(value);
+        }
+        $(document).ready(() => {
+            const select1 = [
+                { value: 1, name: "HTML1" },
+                { value: 2, name: "HTML2" },
+                { value: 3, name: "HTML3" },
+                { value: 4, name: "HTML4" },
+            ]
+            const dataTarget1 = $(".select-wrapper input")[0].getAttribute("data-target")
+            select1.map(item => {
+                $("#select1").append(
+                    `<option value="${item.name}">${item.name}</option>`
+                )
+                $("#" + dataTarget1).append(
+                    `<li id="${dataTarget1 + item.value}" class="selected" onclick=setSelectedValue(${item.name}, ${0})}>
+                        <span>${item.name}</span>
+                        </li>`
+                )
+            })
+
+
+        })
+    </script>
+
+    <script>
+        $('select').formSelect();
+
+        $('.datepicker').datepicker();
+    </script>
+</body>
+
+</html>
